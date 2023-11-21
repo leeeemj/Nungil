@@ -4,6 +4,7 @@ import ArrowLeft from "../assets/Icon/ArrowLeft.svg";
 const Button = styled.button`
   margin-top: 5%;
   margin-left:1%;
+  margin-bottom: 10%;
   background-color: transparent;
   border: 0;
   

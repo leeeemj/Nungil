@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const Head = styled.p`
-  font-size:24px;
+  font-size:1.5rem;
   font-weight:700;
-  margin-left:1.75rem;
+  margin-top:0;
 `
 
 function Header(props) {
