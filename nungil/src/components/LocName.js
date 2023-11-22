@@ -13,16 +13,17 @@ const Input=styled.input`
 
 `;
 const Div=styled.div`
-    width: 215px
-    height: 13px
-    font-size:11px;
     font-color:#909090;
+    font-size:11px;
+    margin-top:10px;
+    margin-left:5px;
+    
 `;
 
 function LocName(){
     return(
         <>
-        <Input placeholder="장소의 이름을 입력하세요."/>
+        <Input placeholder="  장소의 이름을 입력하세요."/>
         <Div>*정해주신 장소의 이름이 지도 상에서 보이게 돼요.</Div>
         </>
     );

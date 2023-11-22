@@ -1,0 +1,16 @@
+{
+    "places":[
+       {"placeId" : 1,
+       "latitude" : 92.21,
+       "longitude" : 37.51,
+       "placeName" : "대나무 숲",
+       "placeProvider" : "유승한"},
+
+       {"placeId" : 2,
+       "latitude" : 92.31,
+       "longitude" : 37.55,
+       "placeName" : "초코나무 숲",
+       "placeProvider" : "이명진"}
+    ]
+
+}
