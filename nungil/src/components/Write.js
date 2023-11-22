@@ -7,18 +7,19 @@ const Input=styled.input`
     border-radius: 20px;
     gap: 10px;
     background-color:#FA72681A;
-    opacity:0.1;
+    opacity:0.9;
+    border:none;
     font-size:14px;
     font-color:#9B9B9B;
 
 `;
 
 
-function LocName(){
+function Write(){
     return(
         <>
-        <Input placeholder="이야기를 작성해주세요."/>
+        <Input placeholder="   이야기를 작성해주세요."/>
         </>
     );
 }
-export default LocName;
+export default Write;
