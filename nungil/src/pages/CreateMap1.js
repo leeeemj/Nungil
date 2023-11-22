@@ -6,7 +6,7 @@ import Sub from "../components/Sub";
 import Button from "../components/Button";
 
 const Setting = styled.div`
-  margin: 0 0 0 8%;
+  margin: 0 0 350px 8%;
 `;
 
 const FlexBox = styled.div`
@@ -35,7 +35,7 @@ const Input = styled.input`
   border-bottom: 1.5px solid;
   text-align: center;
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 `;
@@ -53,6 +53,10 @@ const FormUnderText = styled.p`
   color: #909090;
   font-size: 1.25rem;
   margin: 10px 0 0 0;
+`;
+
+const CenterBox = styled.div`
+  text-align: center;
 `;
 
 function CreateMap1() {
@@ -76,10 +80,12 @@ function CreateMap1() {
           </FlexBox>
           <FormUnderText>선물 받고 싶어요.</FormUnderText>
         </form>
+      </Setting>
+      <CenterBox>
         <Link to="/createmap2">
           <Button text="다음으로" />
         </Link>
-      </Setting>
+      </CenterBox>
     </>
   );
 }
