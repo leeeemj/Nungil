@@ -1,13 +1,14 @@
 import { Map,MapMarker } from "react-kakao-maps-sdk";
 import { useState } from "react";
-import Sub from "../components/Sub";
+import SaveLocation from "../components/SaveLocation";
+
 
 function Gift0() {
     const [position, setPosition] = useState()
 
     return(
         <>
-        <Sub explan="주소 지정하기"/>
+        <SaveLocation/>
         <Map
         //현재위치로 받아와서 지도 생성하기
         center={{ lat: 33.5563, lng: 126.79581 }}
