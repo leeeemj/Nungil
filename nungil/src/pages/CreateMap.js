@@ -7,7 +7,7 @@ import Tip from "../components/Tip";
 import Button from "../components/Button";
 
 const Setting = styled.div`
-  margin: 0 0 0 8%;
+  margin: 0 0 360px 8%;
 `;
 
 const FlexBox = styled.div`
@@ -37,6 +37,10 @@ const Input = styled.input`
   font-size: 0.875em;
 `;
 
+const CenterBox = styled.div`
+  text-align: center;
+`;
+
 function CreateMap() {
   return (
     <>
@@ -53,10 +57,12 @@ function CreateMap() {
           <Input type="text" placeholder="닉네임을 입력하세요" />
         </form>
         <Tip text="*최대 8자까지"></Tip>
+      </Setting>
+      <CenterBox>
         <Link to="/createmap1">
           <Button text="다음으로" />
         </Link>
-      </Setting>
+      </CenterBox>
     </>
   );
 }
