@@ -4,12 +4,13 @@ import CreateMap from "./pages/CreateMap";
 import Gift from "./pages/Gift";
 import Gift1 from "./pages/Gift1";
 import Gift2 from "./pages/Gift2";
-
+import Gift3 from "./pages/Gift3";
 import Main from "./pages/Main";
 import CreateMap1 from './pages/CreateMap1';
 import CreateMap2 from "./pages/CreateMap2";
 import Gift0 from "./pages/Gift0";
-
+import Main0 from "./pages/Main0";
+import ReadText from "./pages/ReadText";
 
 const Setting = styled.div`
   max-width: 393px;
@@ -34,6 +35,9 @@ function App() {
           <Route path="/gift" element={<Gift />} />
           <Route path="/gift1" element={<Gift1 />} />
           <Route path="/gift2" element={<Gift2 />} />
+          <Route path="/gift3" element={<Gift3 />} />
+          <Route path="/main0" element={<Main0 />} /> 
+          <Route path="/readtext" element={<ReadText />} />
         </Routes>
       </BrowserRouter>
     </Setting>
