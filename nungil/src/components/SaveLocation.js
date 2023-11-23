@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Cancel from "../assets/Icon/cancel.png";
 
@@ -19,14 +20,24 @@ const NavigationMessage = styled.p`
   padding-top: 0.5rem;
 `
 
+const Button = styled.button`
+  background-color: transparent;
+  border: 0;
+  
+  &:hover{
+    cursor:pointer;
+  }
+`
 
 function SaveLocation() {
   return (
     <>
       <NavigationBar>
-        <div>
+        <Link to="/main">
+        <Button>
           <Img src={Cancel} alt="취소" />
-        </div>
+        </Button>
+        </Link>
           <NavigationMessage>주소 지정하기</NavigationMessage>
       </NavigationBar>
       {/* <Map></Map>
