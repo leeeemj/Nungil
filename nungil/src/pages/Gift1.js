@@ -5,7 +5,7 @@ import Backspace from "../components/Backspace";
 import Sub from "../components/Sub";
 import Button2 from "../components/Button2";
 import Write from "../components/Write";
-import BasicMap from "../components/BasicMap";
+
 const Wrapper=styled.div`
     display:flex;
     flex-direction:column;
