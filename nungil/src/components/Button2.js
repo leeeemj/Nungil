@@ -18,7 +18,7 @@ background-color: #FA7268;
 `
 
 function Button2(props) {
-    return <Btn>{props.text}</Btn>
+    return <Btn onClick={props.onClick}>{props.text}</Btn>
 }
 
 export default Button2;

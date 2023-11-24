@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Backspace from "../components/Backspace";
 import Sub from "../components/Sub";
 import Tip from "../components/Tip";
-import Button from "../components/Button";
+import Button2 from "../components/Button2";
 
 const Setting = styled.div`
   margin: 0 0 360px 8%;
@@ -33,8 +34,12 @@ const Input = styled.input`
   border-radius: 10px;
   padding: 0.5em 1em;
   background-color: #fafafa;
-  color: #909090;
+  color: #262626;
   font-size: 0.875em;
+
+  &::placeholder {
+    color: #909090;
+  }
 `;
 
 const CenterBox = styled.div`
@@ -42,6 +47,25 @@ const CenterBox = styled.div`
 `;
 
 function CreateMap() {
+  const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
+
+  const nameChangeHandler = (event) => {
+    const newName = event.target.value.slice(0, 8); // 최대 8자로 자르기
+    console.log(newName);
+    setUserName(event.target.value);
+  };
+
+  const isButtonDisabled = userName.length === 0; // 이름이 비어있으면 버튼 비활성화
+
+  const handleSubmit = (event) => {
+    if (isButtonDisabled) {
+      event.preventDefault();
+    } else {
+      navigate(`/createmap1?userName=${encodeURIComponent(userName)}`);
+    }
+  };
+
   return (
     <>
       <Backspace />
@@ -54,14 +78,18 @@ function CreateMap() {
         <Sub explan="장소를 추천 받을 때 쓰일 닉네임을 입력해주세요." />
         <Sub explan="입력하신 닉네임은 타인에게 보이게 돼요." />
         <form>
-          <Input type="text" placeholder="닉네임을 입력하세요" />
+          <Input
+            type="text"
+            placeholder="닉네임을 입력하세요"
+            onChange={nameChangeHandler}
+            value={userName}
+            maxLength="8"
+          />
         </form>
         <Tip text="*최대 8자까지"></Tip>
       </Setting>
       <CenterBox>
-        <Link to="/createmap1">
-          <Button text="다음으로" />
-        </Link>
+        <Button2 text="다음으로" type="submit" onClick={handleSubmit} />
       </CenterBox>
     </>
   );
