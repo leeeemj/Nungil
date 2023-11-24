@@ -10,6 +10,10 @@ import Button2 from "../components/Button2";
 import Quiz from "../components/Quiz";
 
 
+
+
+
+
 const Wrapper=styled.div`
     display:flex;
     flex-direction:column;
@@ -24,7 +28,8 @@ function Gift2() {
     <Sub explan="퀴즈는 단답식만 가능해요"/>
     <Quiz/>
     
-    <Link to="/gift3">
+    
+    <Link to="/main">
           <Button2 text="다음으로" />
     </Link>
     </Wrapper>

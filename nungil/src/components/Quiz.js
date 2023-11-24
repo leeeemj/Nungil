@@ -31,7 +31,6 @@ function Quiz(){
         <Input id="Q" placeholder="문제를 입력하세요."/>
         <Label htmlFor="A">정답</Label>
         <Input id="A" placeholder="문제의 정답을 입력하세요."/>
-        <Tip text="치*"/>
         </>
     );
 }
