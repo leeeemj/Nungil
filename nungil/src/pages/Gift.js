@@ -8,10 +8,11 @@ import Tip from "../components/Tip";
 import LocName from "../components/LocName";
 import Button2 from "../components/Button2";
 import Quiz from "../components/Quiz";
-
+import Pretendard from "pretendard";
 const Wrapper=styled.div`
     display:flex;
     flex-direction:column;
+    font-style:pretendard;
 `;
 
 function Gift() {
