@@ -1,9 +1,12 @@
+import React, { useState, useEffect } from "react";
+import useCurrentLocation from "../hooks/useCurrentLocation";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Backspace from "../components/Backspace";
 import Sub from "../components/Sub";
-import Button from "../components/Button";
+import Button2 from "../components/Button2";
 
 const Setting = styled.div`
   margin: 0 0 350px 8%;
@@ -59,7 +62,52 @@ const CenterBox = styled.div`
   text-align: center;
 `;
 
+// 위치를 가져오는 데 사용할 옵션 설정
+const geolocationOptions = {
+  enableHighAccuracy: false,
+  timeout: 1000 * 60 * 1, // 1 min (1000 ms * 60 sec * 1 minute = 60 000ms)
+  maximumAge: 1000 * 3600 * 24, // 24 hour
+};
+
 function CreateMap1() {
+  const [place, setPlace] = useState("");
+  const location = useLocation();
+  const userName = new URLSearchParams(location.search).get("userName");
+  const navigate = useNavigate();
+
+  const { location: currentLocation, error: currentError } =
+    useCurrentLocation(geolocationOptions);
+
+  useEffect(() => {
+    // 오류가 발생했을 때 처리
+    if (currentError) {
+      console.error("Error occurred:", currentError);
+    }
+
+    // currentLocation이 정의되었을 때만 값을 읽음, 여기 위도 경도 post 보내면 될듯
+    if (currentLocation) {
+      console.log("Latitude(위도):", currentLocation.latitude);
+      console.log("Longitude(경도):", currentLocation.longitude);
+    }
+  }, [currentLocation, currentError]);
+
+  const placeChangeHandler = (event) => {
+    setPlace(event.target.value);
+  };
+
+  const isButtonDisabled = place.length === 0; // 이름이 비어있으면 버튼 비활성화
+
+  // 버튼 클릭 시 동작
+  const handleSubmit = (event) => {
+    if (isButtonDisabled) {
+      event.preventDefault();
+    } else {
+      console.log(userName, place); // 값 확인용 데이터 (이름, 장소),여기도 post
+
+      navigate("/createmap2"); // router에서 제공하는 navigate Hook (페이지 이동)
+    }
+  };
+
   return (
     <>
       <Link to="/createmap">
@@ -73,18 +121,22 @@ function CreateMap1() {
         <Header head="장소 테마 정하기" />
         <Sub explan="추천 받고 싶은 장소의 테마를 정해주세요" />
         <form>
-          <FormText>숭멋사 님은</FormText>
+          <FormText>{userName} 님은</FormText>
           <FlexBox>
-            <Input type="text" placeholder="소소한 여행 플레이스" />
+            <Input
+              type="text"
+              placeholder="소소한 여행 플레이스"
+              onChange={placeChangeHandler}
+            />
             <FormText>(을)를</FormText>
           </FlexBox>
           <FormUnderText>선물 받고 싶어요.</FormUnderText>
         </form>
       </Setting>
       <CenterBox>
-        <Link to="/createmap2">
-          <Button text="다음으로" />
-        </Link>
+        {/* <Link to="/createmap2"> */}
+        <Button2 text="다음으로" onClick={handleSubmit} />
+        {/* </Link> */}
       </CenterBox>
     </>
   );
