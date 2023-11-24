@@ -11,6 +11,8 @@ import CreateMap2 from "./pages/CreateMap2";
 import Gift0 from "./pages/Gift0";
 import Main0 from "./pages/Main0";
 import ReadText from "./pages/ReadText";
+import QuizModal from "./pages/QuizModal"; 
+import QuizAnswer from "./pages/QuizAnswer";
 
 const Setting = styled.div`
   max-width: 393px;
@@ -38,6 +40,9 @@ function App() {
           <Route path="/gift3" element={<Gift3 />} />
           <Route path="/main0" element={<Main0 />} /> 
           <Route path="/readtext" element={<ReadText />} />
+
+          <Route path="/quizmodal" element={<QuizModal />} />
+          <Route path="/quizanswer" element={<QuizAnswer />} />
         </Routes>
       </BrowserRouter>
     </Setting>
