@@ -18065,5 +18065,8 @@
         "url": "https://github.com/sponsors/sindresorhus"
       }
     }
+  },
+  "dependencies": {
+    "lottie-react": "^2.4.0"
   }
 }
